@@ -5,28 +5,15 @@ import Home from "./components/Home";
 import Create from "./components/Create";
 import Post from "./components/Post";
 import Feature from "./components/Feature";
+// import { AuthProvider } from "../src/components/context/AuthContext.js"; // Importa AuthProvider
+import RouterMain from "./components/routes/RouterMain";
 
 function App() {
-  const [, forceRender] = React.useState();
-
-  React.useEffect(() => {
-    // Llama a la función forceRender para forzar una renderización cuando sea necesario
-    forceRender({});
-  }, []);
 
   return (
-    <Router>
-      <div>
-        <Routes>
-          <Route path="/" element={<ResponsiveDrawer />}>
-            <Route path="/home" element={<Home />} />
-            <Route path="/create" element={<Create />} />
-            <Route path="/post" element={<Post />} />
-            <Route path="/feature" element={<Feature />} />
-          </Route>
-        </Routes>
-      </div>
-    </Router>
+    <>
+      <RouterMain/>
+    </>
   );
 }
 

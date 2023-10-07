@@ -8,6 +8,7 @@ export const AuthContext = createContext(defaultValue);
 
 export function isAuth(value) {
   defaultValue.auth = value;
+  sessionStorage.setItem("isAuthenticated", value ? "true" : "false");
 }
 
 export function initAutenticacion() {

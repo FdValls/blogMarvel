@@ -27,12 +27,13 @@ import portada from "../../assets/superheroe-taquillero.jpg";
 import Footer from "../Footer";
 import SignInSide from "../SignInSide";
 import { AuthContext, initAutenticacion } from "../context/AuthContext";
+import { useState } from "react";
 
 const drawerWidth = 240;
 
 function ResponsiveDrawer(props) {
   const { window } = props;
-  const [auth, isAuth] = React.useState(initAutenticacion());
+  const [auth, setAuth] = useState(initAutenticacion());
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [title, setTitle] = React.useState("");
   const navigate = useNavigate();
@@ -122,7 +123,7 @@ function ResponsiveDrawer(props) {
 
   return (
     <>
-      <AuthContext.Provider value={{ auth, isAuth }}>
+      <AuthContext.Provider value={{ auth, setAuth }}>
         {!auth ? (
           <SignInSide />
         ) : (
