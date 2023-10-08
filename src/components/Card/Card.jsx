@@ -29,20 +29,13 @@ const ExpandMore = styled((props) => {
 
 export default function RecipeReviewCard(props) {
   const [expanded, setExpanded] = React.useState(false);
-  const [urlSecure, setUrlHttps] = React.useState("");
+  
+  const urlHttp = props.data.thumbnail.path;
+  const urlHttps = urlHttp.replace("http://", "https://");
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
-  useEffect(() => {
-    const urlHttp = props.data.thumbnail.path;
-    const urlHttps = urlHttp.replace("http://", "https://");
-    setUrlHttps(urlHttps);
-    
-    // Ahora urlSecure se ha actualizado, puedes usarlo aquí.
-    console.log(urlSecure + "." + props.data.thumbnail.extension);
-  }, []);
 
   return (
     <Card
@@ -63,15 +56,13 @@ export default function RecipeReviewCard(props) {
           </IconButton>
         }
         title={props.data.name}
-        // subheader={props.data.description}
         titleTypographyProps={{ style: { color: "white" } }}
         subheaderTypographyProps={{ style: { color: "white" } }}
       />
       <CardMedia
         component="img"
         height="250"
-        
-        image={urlSecure + "." + props.data.thumbnail.extension}
+        image={urlHttps + "." + props.data.thumbnail.extension}
         alt="image"
       />
       <CardContent>
