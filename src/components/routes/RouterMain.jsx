@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, HashRouter } from "react-router-dom";
 import Home from "../Home";
 import ResponsiveDrawer from "../Nav/ResponsiveDrawer";
 import Create from "../Create";
@@ -8,7 +8,7 @@ import Feature from "../Feature";
 const RouterMain = () => {
   return (
     <>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<ResponsiveDrawer />}>
               <Route path="/home" element={<Home />} />
@@ -18,7 +18,7 @@ const RouterMain = () => {
               <Route path="/feature" element={<Feature />} />
             </Route>
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
     </>
   );
 };
