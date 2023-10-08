@@ -14,7 +14,6 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import wolverine from "../../assets/wolverine.png";
 import { useEffect } from "react";
 
 const ExpandMore = styled((props) => {
@@ -30,6 +29,7 @@ const ExpandMore = styled((props) => {
 
 export default function RecipeReviewCard(props) {
   const [expanded, setExpanded] = React.useState(false);
+  const [urlSecure, setUrlHttps] = React.useState("");
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -38,7 +38,10 @@ export default function RecipeReviewCard(props) {
   useEffect(() => {
     const urlHttp = props.data.thumbnail.path;
     const urlHttps = urlHttp.replace("http://", "https://");
-    console.log(urlHttps + "." + props.data.thumbnail.extension);
+    setUrlHttps(urlHttps);
+    
+    // Ahora urlSecure se ha actualizado, puedes usarlo aquí.
+    console.log(urlSecure + "." + props.data.thumbnail.extension);
   }, []);
 
   return (
@@ -67,7 +70,8 @@ export default function RecipeReviewCard(props) {
       <CardMedia
         component="img"
         height="250"
-        image={props.data.thumbnail.path + "." + props.data.thumbnail.extension}
+        
+        image={urlSecure + "." + props.data.thumbnail.extension}
         alt="image"
       />
       <CardContent>
