@@ -62,7 +62,7 @@ export default function RecipeReviewCard(props) {
       <CardMedia
         component="img"
         height="250"
-        // image={urlHttps + "." + props.data.thumbnail.extension}
+        image={urlHttps + "." + props.data.thumbnail.extension}
         alt="image"
       />
       <CardContent>
