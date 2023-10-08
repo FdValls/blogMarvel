@@ -35,9 +35,11 @@ export default function RecipeReviewCard(props) {
     setExpanded(!expanded);
   };
 
-  // useEffect(() => {
-  //   console.log(props.data);
-  // }, []);
+  useEffect(() => {
+    const urlHttp = props.data.thumbnail.path;
+    const urlHttps = urlHttp.replace("http://", "https://");
+    console.log(urlHttps + "." + props.data.thumbnail.extension);
+  }, []);
 
   return (
     <Card
