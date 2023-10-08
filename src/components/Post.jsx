@@ -4,11 +4,13 @@ import Card from "./Card/Card.jsx";
 import { requestAPIFirst, requestAPISecond } from "../api/RequestAPI";
 import { useState, useEffect } from "react";
 import { getRandomArray } from "../util/arrayRandom.js";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function Post() {
   const [dataFirst, setDataFirst] = useState(null);
   const [dataSecond, setDataSecond] = useState(null);
   const [randomData, setRandomData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     requestAPIFirst
@@ -34,19 +36,25 @@ function Post() {
       setRandomData(
         getRandomArray(dataFirst.data.results, dataSecond.data.results)
       );
+      setIsLoading(false);
     }
   }, [dataFirst, dataSecond]);
 
   return (
     <>
       <div className="container" style={{ justifyContent: "center" }}>
-        <div className="grid">
-        {randomData.map((item, index) => (
-          <div key={index}>
-            <Card data={item} />
+        {/* Mostrar CircularProgress mientras se cargan los datos */}
+        {isLoading ? (
+          <CircularProgress size="11rem"/>
+        ) : (
+          <div className="grid">
+            {randomData.map((item, index) => (
+              <div key={index}>
+                <Card data={item} />
+              </div>
+            ))}
           </div>
-        ))}
-        </div>
+        )}
       </div>
     </>
   );

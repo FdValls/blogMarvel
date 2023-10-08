@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://gateway.marvel.com/v1/public";
+const baseURL = "https://gateway.marvel.com/v1/public";
 
 const commonParamsOne = {
   limit: 100,
