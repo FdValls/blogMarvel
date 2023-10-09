@@ -58,7 +58,7 @@ function ResponsiveDrawer(props) {
         setTitle("Feature");
         break;
       default:
-        setTitle("");
+        setTitle("Menu");
         break;
     }
   }, [currentPath]);
