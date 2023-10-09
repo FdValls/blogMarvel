@@ -9,7 +9,7 @@ function Home() {
       <Box>
         <Toolbar component="img" />
         <img
-          style={{ marginTop: "-10px" }}
+          style={{ marginTop: "-50px" }}
           className="imagen-home" // Clase para escritorio
           src="https://cdn.wallpapersafari.com/59/87/lBXpxN.jpg"
           alt="Portada"
