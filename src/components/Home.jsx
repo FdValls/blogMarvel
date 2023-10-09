@@ -9,13 +9,13 @@ function Home() {
       <Box>
         <Toolbar component="img" />
         <img
-        style={{}}
+          style={{ marginTop: "-10px" }}
           className="imagen-home" // Clase para escritorio
           src="https://cdn.wallpapersafari.com/59/87/lBXpxN.jpg"
           alt="Portada"
         />
       </Box>
-      <ul style={{ marginBottom: "5%" }}>
+      <ul style={{ marginBottom: "5%", marginTop: "5%" }}>
         <li>
           <p style={{ color: "white" }}>Actividad 1</p>
         </li>
