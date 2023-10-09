@@ -133,3 +133,28 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
+
+/* Estilos para escritorio (ancho de pantalla mayor a 768px) */
+.imagen-desktop {
+  /* width: 65vw; */
+  height: 75vh;
+  object-fit: cover;
+}
+
+.imagen-home {
+  height: 85vh;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .imagen-desktop {
+    width: 85vw;
+    height: 75vh;
+    object-fit: cover;
+  }
+  .imagen-home {
+    width: 100vw;
+    height: 40vh;
+    object-fit: cover;
+  }
+}

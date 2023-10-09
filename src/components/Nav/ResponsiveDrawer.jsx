@@ -202,11 +202,23 @@ function ResponsiveDrawer(props) {
               sx={{
                 flexGrow: 1,
                 backgroundColor: "black",
+                marginBottom: "20px",
               }}
             >
-              <Toolbar />
+              <Toolbar
+                component="img"
+                // height="250"
+              />
               {currentPath === "/" ? (
-                <img src={portada} alt="Portada" />
+                <img
+                  style={{
+                    // width: "85vw",
+                    // height: "85vh",
+                    objectFit: "cover",
+                  }}
+                  src={"https://w0.peakpx.com/wallpaper/120/664/HD-wallpaper-wolverine-amoled-comic-logan-marvel-thumbnail.jpg"}
+                  alt="Portada"
+                />
               ) : (
                 <Outlet />
               )}
