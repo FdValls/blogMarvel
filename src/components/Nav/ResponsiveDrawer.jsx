@@ -20,6 +20,7 @@ import { Outlet, Link, useNavigate, useLocation } from "react-router-dom"; // Im
 import "../../App.css";
 import marvel from "../../assets/marvel.jpg";
 import home from "../../assets/home1.png";
+import logout from "../../assets/logout.png";
 import create from "../../assets/create.png";
 import post from "../../assets/post.png";
 import feature from "../../assets/feature.png";
@@ -77,6 +78,9 @@ function ResponsiveDrawer(props) {
       case "Feature":
         navigate("/feature");
         break;
+      case "Logout":
+        navigate("/logout");
+        break;
       default:
         break;
     }
@@ -90,7 +94,7 @@ function ResponsiveDrawer(props) {
       </Toolbar>
       <Divider />
       <List style={{ marginTop: "25px" }}>
-        {["Home", "Create", "Post", "Feature"].map((text, index) => (
+        {["Home", "Create", "Post", "Feature", "Logout"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton onClick={() => handleMenuItemClick(text)}>
               <ListItemIcon style={{ height: "35px" }}>
@@ -104,6 +108,8 @@ function ResponsiveDrawer(props) {
                       return <img src={post} alt="" />;
                     case "Feature":
                       return <img src={feature} alt="" />;
+                    case "Logout":
+                      return <img src={logout} alt="" />;
                     default:
                       return <img src={wolve1} alt="" />;
                   }
@@ -171,7 +177,7 @@ function ResponsiveDrawer(props) {
                     boxSizing: "border-box",
                     width: drawerWidth,
                     color: "white",
-                    height: "900px",
+                    height: "96%",
                     background:
                       "linear-gradient(to bottom, black, #333, #666, #999, #ccc, white)",
                   },
@@ -187,7 +193,7 @@ function ResponsiveDrawer(props) {
                     boxSizing: "border-box",
                     width: drawerWidth,
                     color: "white",
-                    height: "96vh",
+                    height: "96%",
                     background:
                       "linear-gradient(to bottom, black, #333, #666, #999, #ccc, white)",
                   },
@@ -205,18 +211,15 @@ function ResponsiveDrawer(props) {
                 marginBottom: "20px",
               }}
             >
-              <Toolbar
-                component="img"
-                // height="250"
-              />
+              <Toolbar component="img" />
               {currentPath === "/" ? (
                 <img
                   style={{
-                    // width: "85vw",
-                    // height: "85vh",
                     objectFit: "cover",
                   }}
-                  src={"https://w0.peakpx.com/wallpaper/120/664/HD-wallpaper-wolverine-amoled-comic-logan-marvel-thumbnail.jpg"}
+                  src={
+                    "https://w0.peakpx.com/wallpaper/120/664/HD-wallpaper-wolverine-amoled-comic-logan-marvel-thumbnail.jpg"
+                  }
                   alt="Portada"
                 />
               ) : (

@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../App.css";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
+import { useLocation } from "react-router-dom";
 
 function Home() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const currentPath = location.pathname;
+    localStorage.setItem("lastVisitedPage", currentPath);
+  }, [location.pathname]);
+
   return (
     <>
       <Box>
@@ -50,10 +58,7 @@ function Home() {
         tellus. Pellentesque tristique porttitor nisl non pellentesque.
         Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
         cubilia curae; Donec sit amet augue sit amet leo pellentesque interdum
-        et sit amet nisi. Nam interdum fermentum tellus nec porttitor. Clases
-        online en vivo dictadas por expertos de la industria, enfoque 100%
-        práctico, mentorías personalizadas y acceso a una comunidad de +210.000
-        estudiantes.
+        et sit amet nisi. Nam interdum fermentum tellus nec porttitor. 
       </p>
     </>
   );

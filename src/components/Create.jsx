@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Title,
@@ -9,12 +9,15 @@ import {
   Button,
 } from "./styles"; 
 import { FcImageFile } from "react-icons/fc";
+import { useLocation } from "react-router-dom";
 
 
 export default function Create() {
   const [title, setTitle] = useState("");
   const [username, setUsername] = useState("");
   const [text, setText] = useState("");
+  const location = useLocation();
+
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -22,6 +25,12 @@ export default function Create() {
     console.log("Usuario:", username);
     console.log("Texto:", text);
   }
+
+  useEffect(() => {
+    const currentPath = location.pathname;
+    localStorage.setItem("lastVisitedPage", currentPath);
+  }, [location.pathname]);
+
 
   return (
     <Container>

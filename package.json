@@ -20,12 +20,15 @@
     "cdbreact": "^1.5.18",
     "flowbite": "^1.8.1",
     "mdb-react-ui-kit": "^6.3.0",
+    "qs": "^6.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.16.0",
+    "react-snackbar-alert": "^2.1.0",
     "react-social-icons": "^6.4.0",
-    "styled-components": "^6.0.8"
+    "react-use": "^17.4.0",
+    "styled-components": "^6.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

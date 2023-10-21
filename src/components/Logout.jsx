@@ -1,25 +1,23 @@
-import { useNavigate } from "react-router-dom";
-import { useEffect, useContext } from "react"
-import { AuthContext } from '../context/AuthContext';
+import { useEffect, useContext } from "react";
+import { AuthContext } from "./context/AuthContext.js";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Logout = () => {
   const { setAuth, setUserName } = useContext(AuthContext);
-
   const navigate = useNavigate();
 
   const handler = () => {
     sessionStorage.removeItem("isAuthenticated");
     sessionStorage.removeItem("userName");
     setAuth(false);
-    setUserName("");
-    navigate("/login");
-  }
+    navigate("/");
+  };
 
   useEffect(() => {
-    handler()
-  }, [])
+    handler();
+  }, [location.pathname]);
 
-
-  return <></>
+  return <></>;
 };
+
 export default Logout;
