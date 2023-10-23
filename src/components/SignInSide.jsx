@@ -18,7 +18,7 @@ import { loginAPI, loginAuthAPI } from "../api/requestAPI.js";
 import { useNavigate } from "react-router-dom";
 import CustomSnackbar from "../util/CustomSnackbar.jsx";
 
-function Copyright(props) {
+function Copyright() {
   return (
     <Typography
       color="text.secondary"

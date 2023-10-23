@@ -1,22 +1,19 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { Outlet, Link, useNavigate, useLocation } from "react-router-dom"; // Importamos Outlet, Link y useNavigate para la navegación
+import { Outlet, useNavigate, useLocation } from "react-router-dom"; // Importamos Outlet, Link y useNavigate para la navegación
 import "../../App.css";
 import marvel from "../../assets/marvel.jpg";
 import home from "../../assets/home1.png";
@@ -24,7 +21,6 @@ import logout from "../../assets/logout.png";
 import create from "../../assets/create.png";
 import post from "../../assets/post.png";
 import feature from "../../assets/feature.png";
-import portada from "../../assets/superheroe-taquillero.jpg";
 import Footer from "../Footer";
 import SignInSide from "../SignInSide";
 import { AuthContext, initAutenticacion } from "../context/AuthContext";

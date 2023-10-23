@@ -1,14 +1,9 @@
-import React from "react";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 
-export default function CustomSnackbar({
-  open,
-  onClose,
-  message,
-  severity,
-  duration,
-}) {
+function CustomSnackbar(props) {
+  const { open, onClose, message, severity, duration } = props;
+
   return (
     <Snackbar
       anchorOrigin={{ vertical: "top", horizontal: "center" }}
@@ -22,3 +17,5 @@ export default function CustomSnackbar({
     </Snackbar>
   );
 }
+
+export default CustomSnackbar;
