@@ -27,3 +27,5 @@ Sigue estos pasos para instalar Proyecto XYZ:
 Para loguearse al Proyecto blog MARVEL:
 
 - Login: Username: anything: Password: inoveblog
+- En caso de no completar campos hay mensajes de error (snackbars)
+- Al desloguearse de una pantalla y volver a loguearse, el usuario vuelve a su ultima pantalla
