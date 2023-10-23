@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const baseURL = "https://gateway.marvel.com/v1/public";
-// const URLSignIn = `http://miblog.inovecode.com/api/v1.0`;
 
 
 const commonParamsOne = {
@@ -31,7 +30,7 @@ const clientDesc = axios.create({
 });
 
 const clientLogin = axios.create({
-  baseURL: "http://miblog.inovecode.com/api/v1.0",
+  baseURL: "https://miblog.inovecode.com/api/v1.0",
 });
 
 const useAuthEndpoints = false;
