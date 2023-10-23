@@ -1,5 +1,4 @@
 import {
-  BrowserRouter,
   Routes,
   Route,
   Navigate,
@@ -12,15 +11,15 @@ import Post from "../Post";
 import Feature from "../Feature";
 import Logout from "../Logout";
 import { useState } from "react";
-import { AuthContext, initAutenticacion } from "../context/AuthContext";
-import SignInSide from "../SignInSide";
+import { AuthContext, initAutenticacion, initUser } from "../context/AuthContext";
 
 const RouterMain = () => {
   const [auth, setAuth] = useState(initAutenticacion());
+  const [userName, setUserName] = useState(initUser()); 
 
   return (
     <>
-      <AuthContext.Provider value={{ auth, setAuth }}>
+      <AuthContext.Provider value={{ auth, setAuth, userName, setUserName }}>
         <HashRouter>
           <Routes>
             <Route path="/" element={<ResponsiveDrawer />}>

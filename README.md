@@ -1,9 +1,29 @@
-# React + Vite
+# Blog MARVEL
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En este mini proyecto emulo un sistema de posteos sobre superheroes, hay un home que emula las novedades, y noticias más relevantes y submenues con funcionalidades especificas:
 
-Currently, two official plugins are available:
+## Contenido
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# blogMarvel
+- [Requisitos](#requisitos)
+- [Instalación](#instalación)
+- [Uso](#uso)
+
+## Requisitos
+
+Asegúrate de tener instalado lo siguiente:
+
+- [Node js](https://nodejs.org/es)
+
+## Instalación
+
+Sigue estos pasos para instalar Proyecto XYZ:
+
+1. Clona este repositorio: `git clone https://github.com/FdValls/blogMarvel.git`
+2. Instala las dependencias: `npm install`
+3. Para correr el proyecto: `npm run dev`
+
+## Uso
+
+Para loguearse al Proyecto blog MARVEL:
+
+- Login: Username: anything: Password: inoveblog

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -15,14 +15,16 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { AuthContext } from "./context/AuthContext.js"; // Asegúrate de importar el contexto correctamente
 import { useAuthEndpoints } from "../api/apiClient.js";
 import { loginAPI, loginAuthAPI } from "../api/requestAPI.js";
-import { useLocation, useNavigate } from "react-router-dom";
-import Snackbar from "@mui/material/Snackbar";
-import Stack from "@mui/material/Stack";
-import MuiAlert from "@mui/material/Alert";
+import { useNavigate } from "react-router-dom";
+import CustomSnackbar from "../util/CustomSnackbar.jsx";
 
 function Copyright(props) {
   return (
-    <Typography color="text.secondary" align="center">
+    <Typography
+      color="text.secondary"
+      align="center"
+      style={{ marginTop: "20px" }}
+    >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
         Your Website
@@ -32,23 +34,31 @@ function Copyright(props) {
     </Typography>
   );
 }
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
 
 const defaultTheme = createTheme();
 
 export default function SignInSide() {
   const { setAuth } = useContext(AuthContext);
-  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [warningSnackbar, setWarningSnackbar] = useState(false);
+  const [errorSnackbar, setErrorSnackbar] = useState(false);
+  const [successSnackbar, setSuccessSnackbar] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSnackbarClose = () => {
-    setOpenSnackbar(false);
+    setWarningSnackbar(false);
+    setErrorSnackbar(false);
+    setSuccessSnackbar(false);
   };
 
-  // *************************************************** //
+  useEffect(() => {
+    if (successSnackbar) {
+      setTimeout(() => {
+        setAuth(true);
+        console.log(`Login exitoso`);
+      }, 1000);
+    }
+  }, [successSnackbar]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -62,9 +72,7 @@ export default function SignInSide() {
       password: data.get("password"),
     });
     if (username === "" || password === "") {
-      setOpenSnackbar(true); // Muestra el Snackbar si hay campos vacíos
-
-      // alert("Campos vacios");
+      setWarningSnackbar(true);
       return;
     }
     const api = useAuthEndpoints ? loginAuthAPI : loginAPI;
@@ -73,9 +81,7 @@ export default function SignInSide() {
       .then((response) => {
         sessionStorage.setItem("isAuthenticated", "true");
         sessionStorage.setItem("userName", username);
-
-        setAuth(true);
-        console.log(`Login succesfull`);
+        setSuccessSnackbar(true);
 
         if (lastVisitedPage === "/logout") {
           navigate("/");
@@ -84,7 +90,10 @@ export default function SignInSide() {
         }
       })
       .catch((error) => {
-        console.log(`No se pudo realizar el login: ${error.code}`);
+        setTimeout(() => {
+          setErrorSnackbar(!successSnackbar);
+          console.log(`No se pudo realizar el login: ${error.code}`);
+        }, 1500);
       });
   };
 
@@ -92,29 +101,27 @@ export default function SignInSide() {
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
-        <Snackbar
-          anchorOrigin={{ vertical: "top", horizontal: "center" }}
-          open={openSnackbar}
-          autoHideDuration={3000}
+        <CustomSnackbar
+          open={warningSnackbar}
           onClose={handleSnackbarClose}
-          sx={{
-            width: "100%",
-            "& .MuiSnackbarContent-root": {
-              backgroundColor: "#ff5722",
-            },
-            "& .MuiAlert-icon": {
-              color: "#ffffff",
-            },
-            "& .MuiAlert-message": {
-              color: "#ffffff",
-            },
-          }}
-        >
-          <Alert onClose={handleSnackbarClose} severity="error">
-            Por favor, completa todos los campos.
-          </Alert>
-        </Snackbar>
-
+          message="Por favor, completa todos los campos."
+          severity="warning"
+          duration={3000}
+        />
+        <CustomSnackbar
+          open={errorSnackbar}
+          onClose={handleSnackbarClose}
+          message="Error al realizar el inicio de sesión."
+          severity="error"
+          duration={3000}
+        />
+        <CustomSnackbar
+          open={successSnackbar}
+          onClose={handleSnackbarClose}
+          message="Login success."
+          severity="success"
+          duration={2000}
+        />
         <Grid
           item
           xs={false}
