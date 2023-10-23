@@ -83,6 +83,8 @@ export default function SignInSide() {
         sessionStorage.setItem("userName", username);
         setSuccessSnackbar(true);
 
+        const lastVisitedPage = localStorage.getItem("lastVisitedPage");
+
         if (lastVisitedPage === "/logout") {
           navigate("/");
         } else if (lastVisitedPage) {
