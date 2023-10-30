@@ -184,7 +184,7 @@ function ResponsiveDrawer(props) {
                     boxSizing: "border-box",
                     width: drawerWidth,
                     color: "white",
-                    height: "96%",
+                    height: "96.1%",
                     background:
                       "linear-gradient(to bottom, black, #333, #666, #999, #ccc, white)",
                   },
@@ -200,7 +200,7 @@ function ResponsiveDrawer(props) {
                     boxSizing: "border-box",
                     width: drawerWidth,
                     color: "white",
-                    height: "96%",
+                    height: "96.1%",
                     background:
                       "linear-gradient(to bottom, black, #333, #666, #999, #ccc, white)",
                   },
