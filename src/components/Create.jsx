@@ -42,8 +42,8 @@ const Create = () => {
     console.log("Selecciono imagne");
     console.log(selectedImage);
     console.log("que tiene cardData.image");
+    setImage(URL.createObjectURL(selectedImage));
     if (selectedImage) {
-      setImage(URL.createObjectURL(selectedImage));
       cardData.image = selectedImage;
     }
   };
