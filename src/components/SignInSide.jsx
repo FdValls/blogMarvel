@@ -74,7 +74,13 @@ export default function SignInSide() {
     if (username === "" || password === "") {
       setWarningSnackbar(true);
       return;
+    }else{
+      sessionStorage.setItem("isAuthenticated", "true");
+      sessionStorage.setItem("userName", username);
+      setSuccessSnackbar(true);
+      navigate("/");
     }
+    
     const api = useAuthEndpoints ? loginAuthAPI : loginAPI;
     api
       .post(username, password)
@@ -131,7 +137,8 @@ export default function SignInSide() {
           md={7}
           sx={{
             backgroundImage:
-              "url(https://source.unsplash.com/random?wallpapers)",
+              "url(https://www.mundodeportivo.com/alfabeta/hero/2023/08/el-superman-de-marvel-volvera-a-las-paginas-de-los-comics-de-una-forma-bastante-inusual.jpg?width=768&aspect_ratio=16:9&format=nowebp)",
+              // "url(https://www.mundodeportivo.com/alfabeta/hero/2023/08/el-superman-de-marvel-volvera-a-las-paginas-de-los-comics-de-una-forma-bastante-inusual.jpg?width=768&aspect_ratio=16:9&format=nowebp)",
             backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>
               t.palette.mode === "light"
@@ -154,7 +161,7 @@ export default function SignInSide() {
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography component="h1" variant="h5" color={"black"}>
               Sign in
             </Typography>
             <Box

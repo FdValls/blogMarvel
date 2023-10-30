@@ -20,6 +20,7 @@ import home from "../../assets/home1.png";
 import logout from "../../assets/logout.png";
 import create from "../../assets/create.png";
 import post from "../../assets/post.png";
+import postCustom from "../../assets/postCustom.png";
 import feature from "../../assets/feature.png";
 import Footer from "../Footer";
 import SignInSide from "../SignInSide";
@@ -49,7 +50,10 @@ function ResponsiveDrawer(props) {
         setTitle("Create");
         break;
       case "/post":
-        setTitle("Post");
+        setTitle("Posteos de marvel");
+        break;
+      case "/viewPost":
+        setTitle("Posteos creados");
         break;
       case "/feature":
         setTitle("Feature");
@@ -68,12 +72,15 @@ function ResponsiveDrawer(props) {
       case "Create":
         navigate("/create");
         break;
-      case "Post":
+      case "Posteos de Marvel":
         navigate("/post");
         break;
-      case "Feature":
-        navigate("/feature");
+      case "Posteos creados":
+        navigate("/viewPost");
         break;
+      // case "Feature":
+      //   navigate("/feature");
+      //   break;
       case "Logout":
         navigate("/logout");
         break;
@@ -90,31 +97,35 @@ function ResponsiveDrawer(props) {
       </Toolbar>
       <Divider />
       <List style={{ marginTop: "25px" }}>
-        {["Home", "Create", "Post", "Feature", "Logout"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton onClick={() => handleMenuItemClick(text)}>
-              <ListItemIcon style={{ height: "35px" }}>
-                {(() => {
-                  switch (text) {
-                    case "Home":
-                      return <img src={home} alt="" />;
-                    case "Create":
-                      return <img src={create} alt="" />;
-                    case "Post":
-                      return <img src={post} alt="" />;
-                    case "Feature":
-                      return <img src={feature} alt="" />;
-                    case "Logout":
-                      return <img src={logout} alt="" />;
-                    default:
-                      return <img src={wolve1} alt="" />;
-                  }
-                })()}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {["Home", "Create", "Posteos de Marvel", "Posteos creados", "Logout"].map(
+          (text, index) => (
+            <ListItem key={text} disablePadding>
+              <ListItemButton onClick={() => handleMenuItemClick(text)}>
+                <ListItemIcon style={{ height: "35px" }}>
+                  {(() => {
+                    switch (text) {
+                      case "Home":
+                        return <img src={home} alt="" />;
+                      case "Create":
+                        return <img src={create} alt="" />;
+                      case "Posteos de Marvel":
+                        return <img src={post} alt="" />;
+                      case "Posteos creados":
+                        return <img src={postCustom} alt="" />;
+                      // case "Feature":
+                      //   return <img src={feature} alt="" />;
+                      case "Logout":
+                        return <img src={logout} alt="" />;
+                      default:
+                        return <img src={wolve1} alt="" />;
+                    }
+                  })()}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          )
+        )}
       </List>
       <Divider />
     </div>

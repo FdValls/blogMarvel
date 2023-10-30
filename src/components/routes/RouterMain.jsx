@@ -12,6 +12,7 @@ import Feature from "../Feature";
 import Logout from "../Logout";
 import { useState } from "react";
 import { AuthContext, initAutenticacion, initUser } from "../context/AuthContext";
+import ViewPost from "../ViewPost";
 
 const RouterMain = () => {
   const [auth, setAuth] = useState(initAutenticacion());
@@ -26,7 +27,8 @@ const RouterMain = () => {
               <Route path="/home" element={<Home />} />
               <Route path="/create" element={<Create />} />
               <Route path="/post" element={<Post />} />
-              <Route path="/feature" element={<Feature />} />
+              <Route path="/viewPost" element={<ViewPost />} />
+              {/* <Route path="/feature" element={<Feature />} /> */}
               <Route
                 path="/login"
                 element={auth ? <Navigate to="/home" replace /> : <Home />}
